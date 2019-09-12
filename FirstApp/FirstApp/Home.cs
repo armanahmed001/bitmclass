@@ -10,11 +10,22 @@ using System.Windows.Forms;
 
 namespace FirstApp
 {
-    public partial class Form1 : Form
+    public partial class Home : Form
     {
-        public Form1()
+        public Home()
         {
             InitializeComponent();
+        }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ShowButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hello! " + NameTextBox.Text);
+            showlabel.Text = NameTextBox.Text;
         }
     }
 }
