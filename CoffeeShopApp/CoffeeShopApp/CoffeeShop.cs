@@ -19,43 +19,107 @@ namespace CoffeeShopApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string name = customernametextBox.Text;
-            string contact = contacttextBox.Text;
-            string address = addresstextBox.Text;
+            string name = customerNameTextBox.Text;
+            string contact = contactTextBox.Text;
+            string address = addressTextBox.Text;
             string order = orderComboBox.Text;
-            int quantity = Convert.ToInt32(quantitytextBox.Text);
-            int unitPrice = 0;
+            string quantity = quantityTextBox.Text;
+            double totalPrice = 0;
+            if (quantity != "")
+            {
+                switch (order)
+                {
+                    case "Black":
+                        totalPrice = int.Parse(quantity) * 120;
+                        break;
+                    case "Cold":
+                        totalPrice = int.Parse(quantity) * 100;
+                        break;
+                    case "Hot":
+                        totalPrice = int.Parse(quantity) * 90;
+                        break;
+                    case "Regular":
+                        totalPrice = int.Parse(quantity) * 80;
+                        break;
+                }
+                
 
-            if( order == "Black-120")
-            {
-                unitPrice = 120;
-            }
-            else if( order == "Cold-100")
-            {
-                unitPrice = 100;
-            }
-            else if(order == "Hot-90")
-            {
-                unitPrice = 90;
-            }
-            else if( order == "Reguler-80")
-            {
-                unitPrice = 80;
+                //const int size = 10;
+                //int[] element = new int[size];
+
+                //string[] customerinfo = new string[size];
+                //string message = " ";
+                //for (int i = 0; i < size; i++)
+                //{
+                //    element[i] = i;
+                //    //message += "\n\nCustomer Information: " + element[i].ToString();
+                //}
+
+                //string sms = " ";
+                //for (int j = 0; j < size; j++)
+                //{
+                //    customerinfo[j] += ("\nCustomer Name: " + name + "\nContact No: " + contact
+                //    + "\nAddress: " + address + "\nOrder: " + order + "\nQuantity: " + quantity
+                //    + "\n\n\nTotal Price: " + totalPrice + " BDT");
+
+                //}
+
+
+
+
+
+
+
+                //for (int i = 1; i < size; i++)
+                //{
+                //    sms += "\n\nCustomer Information: " + element[i].ToString() + customerinfo[i] + " \n";
+
+                //}
+
+
+
+
+                if (order != "")
+                {
+                    int size = 15;
+                    string[] customerinfo = new string[size];
+                    int[] element = new int[size];
+                    string sms = " ";
+                    string message = " ";
+                    for (int j = 1; j < size; j++)
+                    {
+                        message =  element[j].ToString() ;
+
+                    }
+
+                    for (int i = 0; i < size; i++)
+                    {
+                        
+                        customerinfo[i] = ("\nCustomer Name: " + name + "\nContact No: " + contact
+                         + "\nAddress: " + address + "\nOrder: " + order + "\nQuantity: " + quantity
+                         + "\n\n\nTotal Price: " + totalPrice + " BDT");
+                        sms = customerinfo[i];
+                        
+                        
+                    }
+
+                    showInformationRichTextBox.Text += "\n\nCustomer Information: " + message + sms;
+
+                    //showInformationRichTextBox.Text = "Customer Name: " + name + "\nContact No: " + contact
+                    //+ "\nAddress: " + address + "\nOrder: " + order + "\nQuantity: " + quantity
+                    //+ "\n\n\nTotal Price: " + totalPrice + " BDT";
+
+                    MessageBox.Show("Order completed successfully.");
+                }
+                else 
+                {
+                    MessageBox.Show("Please Select an order item..");
+                }
             }
             else
             {
-                unitPrice = 0;
+                MessageBox.Show("Please select quantity!");
             }
-
-            
-            int totalPrice = quantity * unitPrice;
-
-            listBox1.Items.Add("Customer Name: " + name);
-            listBox1.Items.Add("Contact No: " + contact);
-            listBox1.Items.Add("Address: " + address);
-            listBox1.Items.Add("Order: " + order);
-            listBox1.Items.Add("Quantity: " + quantity);
-            listBox1.Items.Add("Total Price: " + totalPrice);
 
         }
 
