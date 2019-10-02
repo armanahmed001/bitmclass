@@ -135,6 +135,7 @@
             // 
             // showDataGridView
             // 
+            this.showDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.showDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.showDataGridView.Location = new System.Drawing.Point(12, 285);
             this.showDataGridView.Name = "showDataGridView";
@@ -303,7 +304,6 @@
             this.Controls.Add(this.showDataGridView);
             this.Name = "ItemForm";
             this.Text = "Item";
-            this.Load += new System.EventHandler(this.ItemForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.showDataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
